@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" style="background-color: rgba(0,0,0,0.0); width:100%; height: 100%;">
 <head>
@@ -16,41 +17,13 @@
     <style>
         .modal-backdrop {
             background-color: rgba(0, 0, 0, 0.1);
+        !important
         }
         .modal-backdrop + div {
             overflow: auto;
         }
         .modal-body, .content {
             padding: 0;
-        }
-
-        .blink-text {
-            color: red;
-            animation: blink 2s ease-in-out infinite;
-        }
-        .disabled-link{
-        cursor: not-allowed !important;
-        }
-        a.btn.disabled-link,
-        a.btn.disabled-link:hover,
-        a.btn.disabled-link:focus,
-        a.btn.disabled-link:active,
-        a.btn.disabled-link:focus-visible{
-        outline: none !important;
-        box-shadow: none !important;
-        }
-        .blink-2 {
-            animation: blank 4s ease-in-out infinite;
-        }
-        @keyframes blank{
-            0%, 50%, 100% { color:white; opacity: 1; }
-            25%, 75% { color:white; opacity: 0; }
-        }
-
-        @keyframes blink {
-                0%   { color: red; opacity: 1; }
-                50%  { color: white; opacity: 1; }
-                100% { color: red; opacity: 1; }
         }
     </style>
 </head>
@@ -68,47 +41,55 @@
                              role="dialog" aria-hidden="false">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
+
+
+
+
+
                                     <div class="modal-body">
                                         <div class="content">
-                                                <section class="common-box">
-                                                    <div class="container">
-                                                        <div class="section-title center-align">
-                                                            <h2 class="blink-text">AJ IMMORTAL <br> <span class = "blink-2">#IndoPrideProxy</span></h2>
-                                                            <h5 style ="color:white;">Growtopia Version : 5.24</h5>
-                                                            
-                                                        </div>
-                                                        <div class="row div-content-center">
-                                                                <div class="col-md-12 col-sm-12">
-                                                                    <a id="googleLogin" href="https://login.growtopiagame.com/google/redirect?token=eu7D9Z3ok7kvrDCkszn4NnBIDC1S92SfHLaVObAvyBy7Y7qZo49h%2FuqzRXsmDgfrnBi7G6IcodH7v%2FV9IXjb%2BiIl0Cex%2BBCYN59PVeFMs%2BmrqHARgtuZfFSTU48dzEPMzSPxEX7pGTfR9cx8z3yAJAT6tOhRxZaZ1eiUsrhHC5xJcCbbkoWj%2FoWyfwe1V884O5%2FrDl%2FrUXSGmXQj4KlD0QcBtJcH%2BWDyMyP6z%2BkkH6L2fMEIT%2FXMe7C0raUlSutYQ%2FbZE1dc6CFXHTjSUHGq%2BnkxSAHowC8c9MJc%2BBuGU0Vl1tIQvLVxLR0sAUUQQC1NDGWcTAwr36FQZyqvpcE%2FTLJp00Bw7ulJLaz7Ss3Kv%2FkCCgJYjfAo62Pe0cdSd95NRWtdjxe0ddlI6VlDZcoqdDPbKDgyDDnYqjNthMZSLaldjUc%2B4KQAzJ96%2FCAe4vjA1m3uKfCFzJBT3kHDwRwT%2FaIsqlkEigzFiTSSKbXOIJQQMbKFFrkrFlxRhSRw92FL%2B3F%2FS%2BoAg8yqCBzfRWgt8IzDgKFHZ55AGO8ZYv5PuAA%3D"  onclick="optionChose('Google');" class="btn btn-block">
-                                                                        <img src="https://s3.eu-west-1.amazonaws.com/cdn.growtopiagame.com/website/resources/assets/images/googleid_button.png" alt="Google"/>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        <div class="row">
-                                                            <!-- <div class="col-md-12 col-sm-12" ><div id="or">Legacy users only</div></div> -->
-                                                        </div>
-                                                        <div class="row div-content-center">
-                                                            <div class="col-md-12 col-sm-12">
-                                                                <a href="https://login.growtopiagame.com/player/growid/login?token=eu7D9Z3ok7kvrDCkszn4NnBIDC1S92SfHLaVObAvyBy7Y7qZo49h%2FuqzRXsmDgfrnBi7G6IcodH7v%2FV9IXjb%2BiIl0Cex%2BBCYN59PVeFMs%2BmrqHARgtuZfFSTU48dzEPMzSPxEX7pGTfR9cx8z3yAJAT6tOhRxZaZ1eiUsrhHC5xJcCbbkoWj%2FoWyfwe1V884O5%2FrDl%2FrUXSGmXQj4KlD0QcBtJcH%2BWDyMyP6z%2BkkH6L2fMEIT%2FXMe7C0raUlSutYQ%2FbZE1dc6CFXHTjSUHGq%2BnkxSAHowC8c9MJc%2BBuGU0Vl1tIQvLVxLR0sAUUQQC1NDGWcTAwr36FQZyqvpcE%2FTLJp00Bw7ulJLaz7Ss3Kv%2FkCCgJYjfAo62Pe0cdSd95NRWtdjxe0ddlI6VlDZcoqdDPbKDgyDDnYqjNthMZSLaldjUc%2B4KQAzJ96%2FCAe4vjA1m3uKfCFzJBT3kHDwRwT%2FaIsqlkEigzFiTSSKbXOIJQQMbKFFrkrFlxRhSRw92FL%2B3F%2FS%2BoAg8yqCBzfRWgt8IzDgKFHZ55AGO8ZYv5PuAA%3D" onclick="optionChose('Grow');" class="grow-login btn btn-block">Growtopia
-                                                                    Login</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </section>
-                                            </div>
-<script type="text/javascript">
+    <section class="common-box ">
+        <div class="container">
+            <div class="section-title center-align">
+                <h2>Log in with your Grow ID</h2>
+            </div>
+                        <div class="row div-content-center">
+                <div class="col-md-12 col-sm-12">
+                                            <form method="POST" id="loginForm" action="https://login.growtopiagame.com/player/growid/login/validate" accept-charset="UTF-8" class="" role="form" autocomplete="off">
+                            <input name="_token" type="hidden" value="WZJvkTVq98drOlqrw8ebMtVkOCks0pglveOnSoLO">
+                    <div class="form-group">
+                        <input id="login-name" class="form-control grow-text" required="required" placeholder="Your Growtopia Name *" name="growId" value="" type="text">
+                    </div>
+                    <div class="form-group">
+                        <input id="password" class="form-control grow-text" required="required" placeholder="Your Growtopia Password *" name="password" type="password" value="">
+                    </div>
+                    <div class="form-group text-center forgot-password">
+                        <a href="https://www.growtopiagame.com/account" target="_blank">Forgot Password</a>
+                    </div>
+                    <div class="form-group text-center">
+                        <input class="btn btn-lg btn-primary grow-button" type="submit" value="Log in">
+                    </div>
+                        </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('loginForm');
+        const submitButton = form.querySelector('input[type="submit"]');
 
-    function optionChose(option) {
-        platform = '{"platform":"'+option+'"}';
-                window.onloginselection(platform)
+        form.addEventListener('submit', function (e) {
+            if (submitButton.disabled) {
+                e.preventDefault();
+                return false;
             }
 
-    function nativeAndroidSignIn(token) {
-        NativeApp.nativeSignIn(token);
-    }
-    function nativeiOSSignIn(token) {
-        window.webkit.messageHandlers.nativeSignIn.postMessage(token);
-    }
+            submitButton.disabled = true;
+            submitButton.value = 'Logging in...';
+        });
+    });
 </script>
                                     </div>
                                 </div>
@@ -179,24 +160,5 @@
         });
         observer.observe(document.body, {attributes: false, childList: true, characterData: false});
     });
-
-        $(function () {
-        const $google = $('a[href*="/google/redirect"]');
-        $google
-            .addClass('disabled-link')
-            .attr({
-            'aria-disabled':'true',
-            'tabindex':'-1',
-            'href':'javascript:void(0)',
-            'title':'Google login dinonaktifkan'
-            })
-            .removeAttr('onclick')
-            .off('click')
-            .on('click', function(e){
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            return false;
-            });
-        });
 </script>
 </html>
