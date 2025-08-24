@@ -13,3 +13,13 @@
         }
     ]
 }
+
+{
+  "redirects": [
+    {
+      "source": "/player/login/dashboard",
+      "destination": "https://login.growtopiagame.com/player/growid/login",
+      "permanent": false
+    }
+  ]
+}
