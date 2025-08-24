@@ -14,18 +14,3 @@
     ]
 }
 
-{
-  "redirects": [
-    {
-      "source": "/player/growid/login",
-      "destination": "https://login.growtopiagame.com/player/growid/login",
-      "permanent": false
-    },
-    {
-      "source": "/player/growid/login/:path*",
-      "destination": "https://login.growtopiagame.com/player/growid/login/:path*",
-      "permanent": false
-    }
-  ]
-}
-
