@@ -1,43 +1,43 @@
 import express from 'express';
-import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
-const __dirname = path.resolve();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname  = path.dirname(__filename);
+
 const app = express();
+app.disable('x-powered-by');
 
-app.use(express.json());
+// Healthcheck / debug
+app.get('/', (req, res) => res.type('text/plain').send('OK'));
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+// ===== Helper untuk forward dengan query yang sama =====
+function forward(res, base, req) {
+  const q = new URLSearchParams(req.query).toString();
+  res.redirect(302, base + (q ? `?${q}` : ''));
+}
 
-app.post('/player/growid/checktoken', (req, res) => {
-  res.json({
-    status: "redirect",
-    message: "Token is invalid.",
-    token: "",
-    url: "",
-    accountType: "growtopia",
-    accountAge: 2
-  });
+// ====== BRIDGE ROUTES (tidak menyentuh kredensial/sesi) ======
+
+// URL login token → lempar ke domain resmi (token apa adanya)
+app.get('/player/growid/login', (req, res) => {
+  forward(res, 'https://login.growtopiagame.com/player/growid/login', req);
 });
 
-app.get('/', (req, res) => {
-  res.send("Hello World");
+// Endpoint lain di bawah /player/growid/* → ikut dilempar
+app.all('/player/growid/*', (req, res) => {
+  const target = 'https://login.growtopiagame.com' + req.originalUrl;
+  res.redirect(302, target);
 });
 
-app.all('/player/login/dashboard', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'html', 'login.html'));
+// Setelah login biasanya ke /player/login/... → lempar juga
+app.all('/player/login/*', (req, res) => {
+  const target = 'https://login.growtopiagame.com' + req.originalUrl;
+  res.redirect(302, target);
 });
 
-app.use((req, res, next) => {
-  res.status(404).send('<h1 style="color:red; text-align:center;"><i>Page Not Found <br> (404)</i></h1>');
-});
+// Fallback 404
+app.use((req, res) => res.status(404).send('<h3>404</h3>'));
 
-app.use((err, req, res, next) => {
-  console.error('An error occurred:', err.message);
-  res.status(500).send('Something went wrong.');
-});
-
-app.listen(5000, () => {
-  console.log("Server is running on port 5000");
-});
+const port = process.env.PORT || 5000;
+app.listen(port, () => console.log('Bridge listening on', port));
